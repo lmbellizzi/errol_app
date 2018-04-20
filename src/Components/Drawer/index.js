@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View, StatusBar } from 'react-native'
 import { COLOR, ThemeProvider, Toolbar, Drawer, Avatar } from 'react-native-material-ui'
 
 import Container from '../Layouts/container'
 
 const uiTheme = {
     palette: {
-        primaryColor: COLOR.green500,
+        primaryColor: COLOR.blue900,
         accentColor: COLOR.pink500,
       },
     toolbar: {
@@ -26,7 +26,7 @@ export default class DrawerMenu extends Component {
     constructor(props, context) {
       super(props, context);
       this.state = {
-          active: 'people',
+          active: 'info',
         };
     }
   
@@ -51,16 +51,13 @@ export default class DrawerMenu extends Component {
                                 style={{ 
                                     container: { backgroundColor: '#fafafa' },
                                 }}
-                                avatar={<Avatar text={'K'} />}
-                                accounts={[
-                                    { avatar: <Avatar text="H" /> },
-                                    { avatar: <Avatar text="L" /> },
-                                ]}
+                                avatar={<Avatar text={'L'} />}
+                                
                                 footer={{
                                     dense: true,
                                     centerElement: {
-                                        primaryText: 'Kevin Le',
-                                        secondaryText: 'kevin@codeprototype.com',
+                                        primaryText: 'Leandro Bellizzi',
+                                        secondaryText: 'leandrobellizzi@outlook.com',
                                     },
                                     rightElement: 'arrow-drop-down',
                                 }}
@@ -73,27 +70,27 @@ export default class DrawerMenu extends Component {
                             divider
                             items={[
                                 {
-                                    icon: 'bookmark-border', value: 'Bookmarks',
-                                    active: this.state.active == 'bookmark',
+                                    icon: 'bookmark-border', value: 'College',
+                                    active: this.state.active == 'college',
                                     onPress: () => {
-                                        this.setState({ active: 'bookmark' });
-                                        this.props.navigation.navigate('Bookmark');
+                                        this.setState({ active: 'college' });
+                                        this.props.navigation.navigate('College');
                                     },
                                 },
                                 {
-                                    icon: 'today', value: 'Calendar',
-                                    active: this.state.active == 'calendar',
+                                    icon: 'home', value: 'Home',
+                                    active: this.state.active == 'home',
                                     onPress: () => {
-                                        this.setState({ active: 'calendar' });
-                                        this.props.navigation.navigate('Calendar');
+                                        this.setState({ active: 'home' });
+                                        this.props.navigation.navigate('Home');
                                     },
                                 },
                                 {
-                                    icon: 'people', value: 'Clients',
-                                    active: this.state.active == 'client',
+                                    icon: 'email', value: 'Emails',
+                                    active: this.state.active == 'email',
                                     onPress: () => {
-                                        this.setState({ active: 'client' });
-                                        this.props.navigation.navigate('Client');
+                                        this.setState({ active: 'email' });
+                                        this.props.navigation.navigate('Email');
                                     },
                                 },
                             ]}
@@ -106,8 +103,6 @@ export default class DrawerMenu extends Component {
                                     active: this.state.active == 'info',
                                     onPress: () => {
                                         this.setState({ active: 'info' });
-
-                                        //this.props.navigation.navigate('DrawerClose');
                                         this.props.navigation.navigate('Info');
                                     },
                                 },

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
 
+import DrawerMenu from './src/Components/Drawer/index'
 import AppContainer from './src/Components/index'
 import InfoView from './src/Components/Pages/info'
 

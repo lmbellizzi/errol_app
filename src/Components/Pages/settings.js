@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  StatusBar,
-  View
-} from 'react-native';
+import { StyleSheet, Text, StatusBar, View } from 'react-native';
 import { COLOR, ThemeProvider, Toolbar } from 'react-native-material-ui';
 import Container from '../Layouts/container';
 
 const uiTheme = {
   palette: {
-    primaryColor: COLOR.lightBlue900,
+    primaryColor: COLOR.blue900,
+    accentColor: COLOR.pink500,
   },
   toolbar: {
     container: {
@@ -21,7 +16,7 @@ const uiTheme = {
   },
 };
 
-export default class InfoView extends Component {
+export default class SettingsView extends Component {
   render() {
     return (
       <ThemeProvider uiTheme={uiTheme}>
@@ -30,11 +25,11 @@ export default class InfoView extends Component {
           <Toolbar
             leftElement="close"
             onLeftElementPress={() => this.props.navigation.navigate('Home')}
-            centerElement="Info"
+            centerElement="Settings"
           />
           <View style={styles.container}>
             <Text style={styles.welcome}>
-              Welcome to Info View
+              Welcome to Settings View
             </Text>
           </View>
         </Container>
@@ -57,5 +52,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  }
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
