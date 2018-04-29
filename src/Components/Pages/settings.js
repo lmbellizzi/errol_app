@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, StatusBar, View } from 'react-native';
 import { COLOR, ThemeProvider, Toolbar } from 'react-native-material-ui';
-import Container from '../Layouts/container';
+
 
 const uiTheme = {
   palette: {
@@ -20,11 +20,11 @@ export default class SettingsView extends Component {
   render() {
     return (
       <ThemeProvider uiTheme={uiTheme}>
-        <Container>
+        
           <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
           <Toolbar
             leftElement="close"
-            onLeftElementPress={() => this.props.navigation.navigate('Home')}
+            onLeftElementPress={() => this.props.navigation.navigate('College')}
             centerElement="Settings"
           />
           <View style={styles.container}>
@@ -32,7 +32,7 @@ export default class SettingsView extends Component {
               Welcome to Settings View
             </Text>
           </View>
-        </Container>
+        
       </ThemeProvider>
     );
   }

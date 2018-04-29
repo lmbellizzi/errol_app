@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 import { COLOR, ThemeProvider, Toolbar } from 'react-native-material-ui';
-import Container from '../Layouts/container';
+
 
 const uiTheme = {
   palette: {
@@ -25,7 +25,7 @@ export default class InfoView extends Component {
   render() {
     return (
       <ThemeProvider uiTheme={uiTheme}>
-        <Container>
+        
           <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
           <Toolbar
             leftElement="close"
@@ -37,7 +37,7 @@ export default class InfoView extends Component {
               Welcome to Info View
             </Text>
           </View>
-        </Container>
+        
       </ThemeProvider>
     );
   }

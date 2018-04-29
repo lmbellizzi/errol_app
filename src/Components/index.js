@@ -7,7 +7,9 @@ import { TabRouter } from 'react-navigation'
 import AboutView from './Pages/about'
 import CollegeView from './Pages/college'
 import MessagesView from './Pages/email'
-import HomeView from './Pages/home'
+import SettingsView from './Pages/settings'
+
+import Container from './Container/index'
 
 const uiTheme = {
     palette: {
@@ -23,13 +25,17 @@ const uiTheme = {
 }
 
 const TabRoute = TabRouter({
-    Home: { screen: HomeView },
-    Email: { screen: MessagesView },
-    College: { screen: CollegeView },
-    About: { screen: AboutView }
+    Avisos: { screen: MessagesView },
+    Portal: { screen: CollegeView },
+    Sobre: { screen: AboutView },
+    Configuracoes: { screen: SettingsView }
 }, {
-    initialRouteName: 'Home',
+    initialRouteName: 'Portal',
 })
+
+class ContentContainer extends Component {
+
+}
 
 class TabContentNavigator extends Component {
     constructor(props, context) {
@@ -48,9 +54,7 @@ class TabContentNavigator extends Component {
     render() {
         const Component = TabRoute.getComponentForRouteName(this.state.active)
         return (
-            
             <Component />
-            
         )
         
     }
@@ -60,7 +64,7 @@ export default class AppContainer extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            active: 'Home',
+            active: 'Portal',
         }
     }
 
@@ -78,37 +82,34 @@ export default class AppContainer extends Component {
                     centerElement={this.state.active}
                     onLeftElementPress={() => this._navigate()}
                 />
-                <TabContentNavigator value={this.state} key={this.state} />
+                <Container>
+                    <TabContentNavigator value={this.state} key={this.state} />
+                </Container>
+                
                 <BottomNavigation 
                     active={this.state.active}
                     hidden={false}
                     style={{ container: { position: 'absolute', bottom: 0, left: 0, right: 0 } }}
                 >
                     <BottomNavigation.Action
-                        key="Home"
-                        icon="home"
-                        label="Home"
-                        onPress={() => this.setState({ active: 'Home' })}
+                        key="Portal"
+                        icon="laptop-mac"
+                        label="Portal"
+                        onPress={() => this.setState({ active: 'Portal' })}
                     />
                     <BottomNavigation.Action
                         key="Email"
                         icon="message"
-                        label="Notícias"
+                        label="Avisos"
                         onPress={() => {
-                            this.setState({ active: 'Email' });
+                            this.setState({ active: 'Avisos' });
                         }}
-                    />
-                    <BottomNavigation.Action
-                        key="College"
-                        icon="laptop-mac"
-                        label="Faeterj"
-                        onPress={() => this.setState({ active: 'College' })}
                     />
                     <BottomNavigation.Action
                         key="About"
                         icon="info"
                         label="Sobre"
-                        onPress={() => this.setState({ active: 'About' })}
+                        onPress={() => this.setState({ active: 'Sobre' })}
                     />
                 </BottomNavigation>
             </ThemeProvider>
